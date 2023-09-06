@@ -35,7 +35,7 @@ function App() {
   }
 
   const guardarServicio = servicio => {
-    console.log(servicio)
+    console.log(servicios.length + 1) // contar los servicios
     if(servicio.id) {
       // Actualizar
       const serviciosActualizados = servicios.map( servicioState => servicioState.id ===

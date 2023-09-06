@@ -1,11 +1,18 @@
 import { useState, useEffect } from "react"
 
-const ControlServicios = (servicios) => {
+const ControlServicios = (servicios, contar, setContar) => {
 
   const [servicio, setServicio] = useState(0)
 
-  useEffect(() => {
-  }, [servicios])
+  // NO FUNCIONA
+  useEffect((contar) => {
+    // Actualiza el estado de 'servicio' o realiza cualquier lógica adicional según 'servicios'
+    if(servicio.length > 0) {
+    setContar(servicios.length + 1);
+    console.log(setContar)
+  }
+  }, [servicios]);
+   // NO FUNCIONA
 
   return (
     <div className="contenedor-presupuesto contenedor sombra dos-columnas">
