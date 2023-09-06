@@ -1,8 +1,14 @@
-import {useState} from 'react'
+import {useState, useEffect} from 'react'
 import Mensaje from './Mensaje'
 import CerrarBtn from '../img/cerrar.svg'
 
-const Modal = ({setModal, animarModal, setAnimarModal, guardarServicio}) => {
+const Modal = ({
+    setModal, 
+    animarModal, 
+    setAnimarModal, 
+    guardarServicio,
+    servicioEditar
+}) => {
 
     const [mensaje, setMensaje] = useState('')
 
@@ -10,7 +16,16 @@ const Modal = ({setModal, animarModal, setAnimarModal, guardarServicio}) => {
     const [precio, setPrecio] = useState('')
     const [ubicacion, setUbicacion] = useState('')
     const [categoria, setCategoria] = useState('')
-    
+
+    // FALTA AGREGAR NUMERO DE TELEFONO AL EDITAR
+    useEffect(() => {
+        if(Object.keys(servicioEditar).length > 0) {
+            setNombre(servicioEditar.nombre)
+            setPrecio(servicioEditar.precio)
+            setUbicacion(servicioEditar.ubicacion)
+            setCategoria(servicioEditar.categoria)
+          }
+    }, [])
 
     const ocultarModal = () => {
         setAnimarModal(false)

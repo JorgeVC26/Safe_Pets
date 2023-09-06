@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import Header from './components/Header'
 import Modal from './components/Modal'
 import ListadoServicios from './components/ListadoServicios'
@@ -13,8 +13,21 @@ function App() {
 
   const [servicios, setServicios] = useState([])
 
+  const [servicioEditar, setServicioEditar] = useState({})
+
+  useEffect(() => {
+    if(Object.keys(servicioEditar).length > 0) {
+      setModal(true)
+  
+      setTimeout(() => {
+        setAnimarModal(true)
+      }, 500);
+    }
+  }, [servicioEditar])
+
   const handleNuevoServicio = () => {
     setModal(true)
+    setServicioEditar({})
 
     setTimeout(() => {
       setAnimarModal(true)
@@ -45,6 +58,7 @@ function App() {
     <main>
       <ListadoServicios 
       servicios = {servicios}
+      setServicioEditar = {setServicioEditar}
       />
     </main>
     <div className='nuevo-gasto'>
@@ -62,6 +76,7 @@ function App() {
               animarModal = {animarModal}
               setAnimarModal = {setAnimarModal}
               guardarServicio = {guardarServicio}
+              servicioEditar = {servicioEditar}
               />}
     </div>
   

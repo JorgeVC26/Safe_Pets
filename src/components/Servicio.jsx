@@ -22,12 +22,12 @@ const diccionarioIconos = {
 }
 
 
-const Servicio = ({servicio}) => {
+const Servicio = ({servicio, setServicioEditar}) => {
     const {categoria, nombre, precio, ubicacion, id, fecha} = servicio
 
     const leadingActions = () => (
       <LeadingActions>
-        <SwipeAction onClick={() => console.log('Editar')}>
+        <SwipeAction onClick={() => setServicioEditar(servicio)}>
             Editar
         </SwipeAction>
       </LeadingActions>
