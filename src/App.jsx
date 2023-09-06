@@ -35,12 +35,19 @@ function App() {
   }
 
   const guardarServicio = servicio => {
-    servicio.id = generarId()
-    servicio.fecha = Date.now()
-    setServicios([...servicios, servicio])
-
+    console.log(servicio)
+    if(servicio.id) {
+      // Actualizar
+      const serviciosActualizados = servicios.map( servicioState => servicioState.id ===
+        servicio.id ? servicio : servicioState)
+        setServicios(serviciosActualizados)
+    } else {
+      // Nuevo Gasto
+      servicio.id = generarId()
+      servicio.fecha = Date.now()
+      setServicios([...servicios, servicio])
+    }
     setAnimarModal(false)
-
     setTimeout(() => {
         setModal(false)
     }, 500);
@@ -77,6 +84,7 @@ function App() {
               setAnimarModal = {setAnimarModal}
               guardarServicio = {guardarServicio}
               servicioEditar = {servicioEditar}
+              setServicioEditar = {setServicioEditar}
               />}
     </div>
   

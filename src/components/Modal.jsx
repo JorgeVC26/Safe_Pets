@@ -7,7 +7,8 @@ const Modal = ({
     animarModal, 
     setAnimarModal, 
     guardarServicio,
-    servicioEditar
+    servicioEditar,
+    setServicioEditar
 }) => {
 
     const [mensaje, setMensaje] = useState('')
@@ -16,6 +17,8 @@ const Modal = ({
     const [precio, setPrecio] = useState('')
     const [ubicacion, setUbicacion] = useState('')
     const [categoria, setCategoria] = useState('')
+    const [fecha, setFecha] = useState('')
+    const [id, setId] = useState('')
 
     // FALTA AGREGAR NUMERO DE TELEFONO AL EDITAR
     useEffect(() => {
@@ -24,12 +27,14 @@ const Modal = ({
             setPrecio(servicioEditar.precio)
             setUbicacion(servicioEditar.ubicacion)
             setCategoria(servicioEditar.categoria)
+            setId(servicioEditar.id)
+            setFecha(servicioEditar.fecha)
           }
     }, [])
 
     const ocultarModal = () => {
         setAnimarModal(false)
-
+        setServicioEditar({})
         setTimeout(() => {
             setModal(false)
         }, 500);
@@ -47,7 +52,8 @@ const Modal = ({
             return
         }
 
-        guardarServicio({nombre, precio, ubicacion, categoria})
+        //FALTA TELEFONO
+        guardarServicio({nombre, precio, ubicacion, categoria, id, fecha})
     }
 
   return (
@@ -63,7 +69,7 @@ const Modal = ({
       <form 
       onSubmit={handleSubmit}
       className={`formulario ${animarModal ? "animar" : 'cerrar'}`}>
-        <legend>Nuevo Servicio</legend>
+        <legend>{servicioEditar.nombre ? 'Editar Gasto' : 'Nuevo Gasto'}</legend>
         {mensaje && <Mensaje tipo="error">{mensaje}</Mensaje>}
 
         <div className='campo'>
@@ -120,7 +126,7 @@ const Modal = ({
 
             <input 
             type="submit"
-            value="Agregar Servicio"
+            value={servicioEditar.nombre ? 'Guardar Cambios' : 'Agregar Servicio'}
             />
 
            
