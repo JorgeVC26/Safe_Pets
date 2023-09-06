@@ -1,7 +1,7 @@
 import React from 'react'
 import Servicio from './Servicio'
 
-const ListadoServicios = ({servicios, setServicioEditar}) => {
+const ListadoServicios = ({servicios, setServicioEditar, eliminarServicio}) => {
   return (
     <div className='listado-gastos contenedor'>
       <h2>{servicios.length ? 'Servicios' : 'Aún no hay Servicios'}</h2>
@@ -11,6 +11,7 @@ const ListadoServicios = ({servicios, setServicioEditar}) => {
         key={servicio.id}
         servicio = {servicio}
         setServicioEditar = {setServicioEditar}
+        eliminarServicio = {eliminarServicio}
         />
       ))}
     </div>

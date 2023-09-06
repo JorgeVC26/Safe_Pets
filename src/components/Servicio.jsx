@@ -22,7 +22,7 @@ const diccionarioIconos = {
 }
 
 
-const Servicio = ({servicio, setServicioEditar}) => {
+const Servicio = ({servicio, setServicioEditar,eliminarServicio}) => {
     const {categoria, nombre, precio, ubicacion, id, fecha} = servicio
 
     const leadingActions = () => (
@@ -35,7 +35,10 @@ const Servicio = ({servicio, setServicioEditar}) => {
 
     const trailingActions = () => (
       <TrailingActions>
-        <SwipeAction onClick={() => console.log('Eliminar')}>
+        <SwipeAction 
+        onClick={() => eliminarServicio(id)}
+        destructive={true}
+        >
             Eliminar
         </SwipeAction>
       </TrailingActions>

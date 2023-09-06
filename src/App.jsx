@@ -41,6 +41,7 @@ function App() {
       const serviciosActualizados = servicios.map( servicioState => servicioState.id ===
         servicio.id ? servicio : servicioState)
         setServicios(serviciosActualizados)
+        setServicioEditar({})
     } else {
       // Nuevo Gasto
       servicio.id = generarId()
@@ -53,6 +54,10 @@ function App() {
     }, 500);
   }
 
+  const eliminarServicio = id => {
+    const serviciosActualizados = servicios.filter( servicio => servicio.id !== id)
+    setServicios(serviciosActualizados)
+  }
 
   return (
 
@@ -66,6 +71,7 @@ function App() {
       <ListadoServicios 
       servicios = {servicios}
       setServicioEditar = {setServicioEditar}
+      eliminarServicio = {eliminarServicio}
       />
     </main>
     <div className='nuevo-gasto'>
