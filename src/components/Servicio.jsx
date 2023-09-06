@@ -9,7 +9,7 @@ import {
 import "react-swipeable-list/dist/styles.css"
 import { formatearFecha } from '../helpers'
 
-import IconoPaseo from '../img/paseo-mascota.png'
+import IconoPaseo from '../img/paseo.avif'
 import IconoComida from '../img/comida-mascota.png'
 import IconoHigiene from '../img/higiene_mascota.png'
 import IconoCuido from '../img/cuido_completo.png'
