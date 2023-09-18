@@ -94,6 +94,8 @@ useEffect(() => {
       servicios = {servicios}
       setServicioEditar = {setServicioEditar}
       eliminarServicio = {eliminarServicio}
+      filtro = {filtro}
+      serviciosFiltrados = {serviciosFiltrados}
       />
     </main>
     <div className='nuevo-gasto'>
