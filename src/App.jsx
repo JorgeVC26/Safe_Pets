@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import Header from './components/Header'
+import Filtro from './components/Filtro'
 import Modal from './components/Modal'
 import ListadoServicios from './components/ListadoServicios'
 import { generarId } from './helpers'
@@ -11,9 +12,14 @@ function App() {
   const [modal, setModal] = useState(false)
   const [animarModal, setAnimarModal] = useState(false)
 
-  const [servicios, setServicios] = useState([])
+  const [servicios, setServicios] = useState(
+    localStorage.getItem('servicios') ? JSON.parse(localStorage.getItem('servicios')) : []
+  )
 
   const [servicioEditar, setServicioEditar] = useState({})
+
+  const [filtro, setFiltro] = useState('')
+  const [serviciosFiltrados, setServiciosFiltrados] = useState([])
 
   useEffect(() => {
     if(Object.keys(servicioEditar).length > 0) {
@@ -24,6 +30,18 @@ function App() {
       }, 500);
     }
   }, [servicioEditar])
+
+
+useEffect(() => {
+  localStorage.setItem('servicios', JSON.stringify(servicios) ?? [])
+}, [servicios])
+
+useEffect(() => {
+  if(filtro) {
+    const serviciosFiltrados = servicios.filter( servicio => servicio.categoria === filtro)
+    setServiciosFiltrados(serviciosFiltrados)
+  }
+}, [filtro])
 
   const handleNuevoServicio = () => {
     setModal(true)
@@ -68,6 +86,10 @@ function App() {
     
     <>
     <main>
+      <Filtro 
+      filtro = {filtro}
+      setFiltro = {setFiltro}
+      />
       <ListadoServicios 
       servicios = {servicios}
       setServicioEditar = {setServicioEditar}
