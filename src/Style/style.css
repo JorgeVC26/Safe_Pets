@@ -1,0 +1,23 @@
+/* Estilos generales para el select */
+select {
+    width: 200px; /* Ajusta el ancho según tus necesidades */
+    padding: 8px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+  
+  /* Estilos para el hover del select */
+  select:hover {
+    border-color: #555;
+    box-shadow: 0 0 5px --amarillo;
+  }
+  
+  /* Estilos para el foco del select */
+  select:focus {
+    outline: none;
+    border-color: --amarillo; 
+    box-shadow: 0 0 5px --amarillo;
+  }
+  

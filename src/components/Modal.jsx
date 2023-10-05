@@ -1,6 +1,7 @@
 import {useState, useEffect} from 'react'
 import Mensaje from './Mensaje'
 import CerrarBtn from '../img/cerrar.svg'
+import '../Style/style.css';
 
 const Modal = ({
     setModal, 
@@ -69,7 +70,7 @@ const Modal = ({
       <form 
       onSubmit={handleSubmit}
       className={`formulario ${animarModal ? "animar" : 'cerrar'}`}>
-        <legend>{servicioEditar.nombre ? 'Editar Gasto' : 'Nuevo Gasto'}</legend>
+        <legend>{servicioEditar.nombre ? 'Editar Servicio' : 'Nuevo Servicio'}</legend>
         {mensaje && <Mensaje tipo="error">{mensaje}</Mensaje>}
 
         <div className='campo'>
@@ -102,7 +103,7 @@ const Modal = ({
             <input 
             id="ubicacion"
             type="text"
-            placeholder="Añade el cantón donde ofreces el servicio: Ej. Nicoya"
+            placeholder="Zona donde ofrece el servicio"
             value={ubicacion}
             onChange={ e => setUbicacion(e.target.value)}
             />
@@ -124,7 +125,7 @@ const Modal = ({
                 <option value="restaurante">Restaurante</option>
             </select>
 
-            <input 
+            <input style={{borderRadius: '1rem'}}
             type="submit"
             value={servicioEditar.nombre ? 'Guardar Cambios' : 'Agregar Servicio'}
             />
