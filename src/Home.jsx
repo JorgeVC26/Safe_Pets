@@ -3,6 +3,8 @@ import './Style/style.css';
 import Usuarios from './img/Users.png'
 import Resena from './img/resenas.png'
 import Servicios from './img/servicios.png'
+import Historia from './img/historia.png'
+
 
 function Home() {
   return (
@@ -15,7 +17,7 @@ function Home() {
         </header>
         <div className="secciones-principales">
     <div style={{display: 'flex'}}>
-          <div className='seccion sombra' style={{width: '30%', height:'40rem', justifyContent: 'center'}}>
+          <div className='seccion sombra margenHorizontal' style={{width: '20%', height:'40rem', justifyContent: 'center'}}>
             <div className='contenido-gasto' style={{flexDirection: 'column'}}>
               <Link to="./Service" className='Titulos contenido-URL' >Servicios
               
@@ -24,7 +26,7 @@ function Home() {
               </Link>
             </div>
           </div>
-          <div className='seccion sombra margenHorizontal' style={{width: '30%', height:'40rem', justifyContent: 'center'}}>
+          <div className='seccion sombra margenHorizontal' style={{width: '20%', height:'40rem', justifyContent: 'center'}}>
             <div className='contenido-gasto' style={{flexDirection: 'column'}} >
               <Link to="./Service" className='Titulos contenido-URL'>Usuarios
               
@@ -32,14 +34,25 @@ function Home() {
               </Link>
             </div>
           </div>
-          <div className='seccion sombra' style={{width: '30%', height:'40rem', justifyContent: 'center'}}>
+          <div className='seccion sombra margenHorizontal' style={{width: '20%', height:'40rem', justifyContent: 'center'}}>
             <div className='contenido-gasto'  style={{flexDirection: 'column'}}>
-              <Link to="./Service" className='Titulos contenido-URL'>Reseñas y comentarios
+              <Link to="./Informacion" className='Titulos contenido-URL'>Información
               
               <img src={Resena} alt="imagen de comentarios" />
 
               </Link>
             </div>
+            
+          </div>
+          <div className='seccion sombra margenHorizontal' style={{width: '20%', height:'40rem', justifyContent: 'center',}}>
+            <div className='contenido-gasto'  style={{flexDirection: 'column'}}>
+              <Link to="./Historia" className='Titulos contenido-URL'>Historia
+              
+              <img src={Historia} alt="imagen de comentarios" />
+
+              </Link>
+            </div>
+            
           </div>
 </div>
       </div>
