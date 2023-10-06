@@ -69,3 +69,22 @@ select {
   align-items: center;
   gap: 2rem;
 }
+
+.secciones-principales {
+margin: 30px;
+}
+
+.seccion{
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
+    margin-bottom: 2rem;
+    width: 100%;
+}
+
+.seccion:hover{
+  cursor: pointer;
+  background-color: #f1f1f1;
+}

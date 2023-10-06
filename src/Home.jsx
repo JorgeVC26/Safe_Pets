@@ -13,8 +13,9 @@ function Home() {
         <h1>Safe<span>Pets</span></h1>
     
         </header>
+        <div className="secciones-principales">
     <div style={{display: 'flex'}}>
-          <div className='gasto sombra' style={{width: '30%', height:'40rem', justifyContent: 'center'}}>
+          <div className='seccion sombra' style={{width: '30%', height:'40rem', justifyContent: 'center'}}>
             <div className='contenido-gasto' style={{flexDirection: 'column'}}>
               <Link to="./Service" className='Titulos contenido-URL' >Servicios
               
@@ -23,7 +24,7 @@ function Home() {
               </Link>
             </div>
           </div>
-          <div className='gasto sombra margenHorizontal' style={{width: '30%', height:'40rem', justifyContent: 'center'}}>
+          <div className='seccion sombra margenHorizontal' style={{width: '30%', height:'40rem', justifyContent: 'center'}}>
             <div className='contenido-gasto' style={{flexDirection: 'column'}} >
               <Link to="./Service" className='Titulos contenido-URL'>Usuarios
               
@@ -31,7 +32,7 @@ function Home() {
               </Link>
             </div>
           </div>
-          <div className='gasto sombra' style={{width: '30%', height:'40rem', justifyContent: 'center'}}>
+          <div className='seccion sombra' style={{width: '30%', height:'40rem', justifyContent: 'center'}}>
             <div className='contenido-gasto'  style={{flexDirection: 'column'}}>
               <Link to="./Service" className='Titulos contenido-URL'>Reseñas y comentarios
               
@@ -41,6 +42,7 @@ function Home() {
             </div>
           </div>
 </div>
+      </div>
       </div>
   );
 }
